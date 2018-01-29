@@ -1,6 +1,7 @@
 [![Build Status](https://travis-ci.org/Sleep-EZ/ShopKeeper.svg?branch=master)](https://travis-ci.org/Sleep-EZ/ShopKeeper)
 [![npm version](https://badge.fury.io/js/shopkeeper.svg)](https://www.npmjs.com/package/shopkeeper)
 [![Downloads](https://img.shields.io/npm/dm/shopkeeper.svg)](https://www.npmjs.com/package/shopkeeper)
+[![DeepScan Grade](https://deepscan.io/api/projects/1775/branches/7608/badge/grade.svg)](https://deepscan.io/dashboard/#view=project&pid=1775&bid=7608)
 
 # ShopKeeper 
 
