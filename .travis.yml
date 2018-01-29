@@ -7,7 +7,7 @@ before_script:
 script:
   - yarn run test
 
-after_sucess:
+after_success:
   - yarn run docs
   - npm pack
 
