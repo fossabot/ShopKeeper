@@ -1,0 +1,18 @@
+{
+    "version": "0.1.0",
+    "command": "npm",
+    "isShellCommand": true,
+    "showOutput": "always",
+    "suppressTaskName": true,
+    "tasks": [
+        {
+            "taskName": "compile",
+            "args": ["run", "compile"],
+            "isBuildCommand": true
+        },
+        {
+            "taskName": "test",
+            "args": ["run", "mocha", "${relativeFile}"]
+        }
+    ]
+}

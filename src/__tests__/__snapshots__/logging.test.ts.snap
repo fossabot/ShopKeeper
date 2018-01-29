@@ -1,0 +1,110 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Logging Utilities Common Functions error() 1`] = `[MockFunction]`;
+
+exports[`Logging Utilities Common Functions error() 2`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "
+[E] I have some info! - %s",
+      "err",
+    ],
+    Array [
+      "
+[E] Some error
+",
+    ],
+  ],
+}
+`;
+
+exports[`Logging Utilities Common Functions info() 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "[I] I have some info! - %s",
+      "info",
+    ],
+  ],
+}
+`;
+
+exports[`Logging Utilities Common Functions info() 2`] = `[MockFunction]`;
+
+exports[`Logging Utilities Common Functions log() 1`] = `[MockFunction]`;
+
+exports[`Logging Utilities Common Functions log() 2`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "Hello, world - %s",
+      "log",
+    ],
+  ],
+}
+`;
+
+exports[`Logging Utilities Common Functions warn() 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "[W] I have a warning! - %s",
+      "warn",
+    ],
+  ],
+}
+`;
+
+exports[`Logging Utilities Common Functions warn() 2`] = `[MockFunction]`;
+
+exports[`Logging Utilities Staging logStageItemCount() 1`] = `[MockFunction]`;
+
+exports[`Logging Utilities Staging logStageItemCount() 2`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "[I]         ::  ",
+    ],
+    Array [
+      "[I]         :: 25 Items Processed In This Stage:",
+    ],
+    Array [
+      "[I]         ::   + Cool        : 20",
+    ],
+    Array [
+      "[I]         ::   + Something   : 5",
+    ],
+  ],
+}
+`;
+
+exports[`Logging Utilities Staging logStageMessage() 1`] = `[MockFunction]`;
+
+exports[`Logging Utilities Staging logStageMessage() 2`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "[I]         :: Some more progress",
+    ],
+    Array [
+      "[I]         :: Doing stuff...",
+    ],
+  ],
+}
+`;
+
+exports[`Logging Utilities Staging logStageStart() 1`] = `[MockFunction]`;
+
+exports[`Logging Utilities Staging logStageStart() 2`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "[I] Stage 0 :: Hello, world",
+    ],
+    Array [
+      "[I] Stage 1 :: Hello, world",
+    ],
+  ],
+}
+`;

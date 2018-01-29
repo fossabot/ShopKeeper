@@ -1,0 +1,9 @@
+tsconfig.json
+.nojekyll
+.travis.yml
+docs/
+example-data/
+coverage/
+.npmignore
+
+*.tgz

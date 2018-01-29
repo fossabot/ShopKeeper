@@ -1,0 +1,7 @@
+{
+    "editor.minimap.enabled": false,
+    "typescript.tsdk": "./node_modules/typescript/lib",
+    "licenser.license": "AGPLv3",
+    "licenser.author": "Sleep E-Z USA, Inc. / Evan Darwin",
+    "licenser.projectName": "ShopKeeper"
+}

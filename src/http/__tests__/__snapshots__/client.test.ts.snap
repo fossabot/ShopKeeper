@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Shopify HTTP Client DEFAULT_FETCH_OPTS has not changed 1`] = `
+Object {
+  "cache": "default",
+  "method": "GET",
+  "mode": "cors",
+}
+`;
+
+exports[`Shopify HTTP Client ShopifyClient refuses to fulfill when given an unknown type 1`] = `"Refusing to fulfill GET request: No routes available for type 'ADASDASD'"`;
+
+exports[`Shopify HTTP Client ShopifyClient refuses to fulfill when routes cannot be determined 1`] = `"Refusing to fulfill GET request: No routes available for type 'products'"`;

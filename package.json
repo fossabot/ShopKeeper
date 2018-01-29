@@ -1,0 +1,72 @@
+{
+  "name": "shopkeeper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "build/src/lib/client.js",
+  "types": "build/src/lib/client.d.js",
+  "bin": {
+    "shopkeeper": "./build/src/cli.js"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "mapCoverage": true,
+    "setupFiles": [
+      "./src/testing/jestStart.js"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testPathIgnorePatterns": [
+      "./node_modules",
+      "./build"
+    ],
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  },
+  "scripts": {
+    "test": "jest",
+    "check": "gts check",
+    "clean": "gts clean",
+    "compile": "tsc -p .",
+    "docs": "typedoc --mode modules --excludeExternals --excludeNotExported --excludePrivate --out docs/ src/",
+    "fix": "gts fix",
+    "prepare": "npm run compile",
+    "pretest": "npm run compile",
+    "posttest": "npm run check",
+    "setup": "yarn"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/core-js": "^0.9.46",
+    "@types/jest": "^22.1.0",
+    "@types/minimist": "^1.2.0",
+    "@types/node": "^9.3.0",
+    "@types/node-fetch": "^1.6.7",
+    "fetch-mock": "^6.0.0",
+    "gts": "^0.5.3",
+    "jest": "^22.1.4",
+    "ts-jest": "^22.0.1",
+    "ts-node": "^4.1.0",
+    "typedoc": "^0.9.0",
+    "types": "^0.1.1",
+    "typescript": "^2.6.2"
+  },
+  "peerDependencies": {
+    "handlebars": "^4.0"
+  },
+  "dependencies": {
+    "chalk": "^2.3.0",
+    "chokidar": "^2.0.0",
+    "cli-table2": "^0.2.0",
+    "isomorphic-fetch": "^2.2.1"
+  }
+}

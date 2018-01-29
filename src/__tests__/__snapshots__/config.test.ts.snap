@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Configuration Internal Helpers getEnvironments Multiple environments given fails when multiple envs selected, but multiple are disallowed 1`] = `"Multiple environments are not supported for this command (2 were given)"`;
+
+exports[`Configuration Internal Helpers getEnvironments No environments given fails without environments, when one is required 1`] = `"A valid environment name MUST be provided"`;
+
+exports[`Configuration Internal Helpers getEnvironments Single environment given fails when an environment name cannot be found 1`] = `"No environment named noexist found"`;

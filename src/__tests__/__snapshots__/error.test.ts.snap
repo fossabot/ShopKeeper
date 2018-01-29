@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Shared Error Functions ClientInvalidResult 1`] = `"Failed to retrieve items of type 'products'"`;
+
+exports[`Shared Error Functions ConfigInvalidEntry 1`] = `"Invalid 'somekey' configuration provided"`;
+
+exports[`Shared Error Functions Default Promise Handler 1`] = `[MockFunction]`;
+
+exports[`Shared Error Functions Default Promise Handler 2`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "
+[E] Testing
+",
+    ],
+  ],
+}
+`;
+
+exports[`Shared Error Functions InvalidEntityPath 1`] = `"Invalid entity path provided: 'some/path' (example: 'collections/featured')"`;
+
+exports[`Shared Error Functions NoValidConfig 1`] = `"No valid configuration is available. Check your 'shopify.config.js'"`;
+
+exports[`Shared Error Functions UnknownShopifyType 1`] = `"Fatal Error: Unknown Shopify type 'segap'."`;
