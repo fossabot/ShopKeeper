@@ -14,7 +14,6 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import {PathLike} from 'fs';
-import {RenderViewContext} from '../render';
 import {colorPath} from '../theme';
 import {RenderEngine} from './lib';
 

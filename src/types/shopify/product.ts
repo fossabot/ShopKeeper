@@ -13,7 +13,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import {Option, Variant} from '../../lib/client';
+import {Variant} from '../../lib/client';
 import {dateOrUndefined, dateToShopify, getOrFail, getOrNull, getOrUndefined} from '../../lib/typing';
 import * as CoreTypes from '../base';
 import {Store} from '../store';
@@ -39,13 +39,12 @@ export type ProductData$User<H extends CoreTypes.Handle> =
   publishedScope?: string;
   tags?: string[];
   variants: Array<VariantItem<H>>;
-  options: Array<OptionItem<H>>;
+  options: OptionItem[];
 };
 
 export type ProductData$LocalOnly<H extends CoreTypes.Handle> =
     ProductData$User<H>&{
   unresolvedVariants: Array<Variant<H>>;
-  unresolvedOptions: Array<Option<H>>;
 };
 
 export type ProductData$Raw<H extends CoreTypes.Handle> =
@@ -55,7 +54,7 @@ export type ProductData$Raw<H extends CoreTypes.Handle> =
     CoreTypes.Date$PublishedAt$Raw&CoreTypes.Content$HTML$Raw&{
   handle: H;
 
-  variants: Array<Variant$Raw<H>>;
+  variants: Variant$Raw[];
   options: OptionData$Raw[];
 
   tags: string|null;
@@ -81,8 +80,6 @@ export class ProductItem<H extends CoreTypes.Handle> extends
       options: rawOptions,
       variants: rawVariants,
       body_html,
-      image_id,
-      images,
       price,
       compare_at_price: comparePrice,
       created_at,
@@ -94,7 +91,7 @@ export class ProductItem<H extends CoreTypes.Handle> extends
     } = data;
 
     const options = rawOptions.map((option) => {
-      return new OptionItem<H>(store, option);
+      return new OptionItem(store, option);
     });
 
     const variants = rawVariants.map((variant) => {
@@ -151,8 +148,6 @@ export class ProductItem<H extends CoreTypes.Handle> extends
       updatedAt,
       publishedAt,
       publishedScope,
-      variants,
-      options,
       tags,
       templateSuffix,
     } = this.data;

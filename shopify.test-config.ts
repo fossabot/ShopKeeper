@@ -1,6 +1,6 @@
 const path = require('path');
 
-import {Config, Config$Unsafe, Config$User} from './src/types/config';
+import {Config$User} from './src/types/config';
 import {RawRenderEngine} from './src/renderers/raw';
 
 const workspacePath = path.resolve(__dirname, 'workspace-example');

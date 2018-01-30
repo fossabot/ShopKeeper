@@ -60,7 +60,12 @@ export type InventoryPolicy = 'continue'|'deny';
  *
  * @default `"lb"`
  */
-export type ShippingWeightUnit = 'k'|'kg'|'oz'|'lb';
+export enum ShippingWeightUnit {
+  Kilos = 'k',
+  Kilograms = 'kg',
+  Ounces = 'oz',
+  Pounds = 'lb',
+}
 
 /**
  * This is the user-facing representation of Shopify's
@@ -87,11 +92,11 @@ export type Shippable$Raw = {
 };
 
 export type Shippable = {
-  grams: number,
-  weight: number,
-  weightUnit: ShippingWeightUnit,
-  requiresShipping: boolean,
-  inventory: InventoryData,
+  grams?: number,
+  weight?: number,
+  weightUnit?: ShippingWeightUnit,
+  requiresShipping?: boolean,
+  inventory?: InventoryData,
 };
 
 export const DEFAULT_INVENTORY: InventoryData = {

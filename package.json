@@ -1,7 +1,7 @@
 {
   "name": "shopkeeper",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.2",
+  "description": "A utility for managing and deploying Shopify sites",
   "main": "build/src/lib/client.js",
   "types": "build/src/lib/client.d.js",
   "bin": {
@@ -35,15 +35,16 @@
     "clean": "gts clean",
     "compile": "tsc -p .",
     "docs": "typedoc --mode modules --excludeExternals --excludeNotExported --excludePrivate --out docs/ src/",
+    "postdocs": "shx cp .nojekyll docs/.nojekyll",
     "fix": "gts fix",
     "prepare": "npm run compile",
     "pretest": "npm run compile",
     "posttest": "npm run check",
     "setup": "yarn"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["shopify", "dsc", "framework", "cli"],
+  "author": "Evan Darwin",
+  "license": "AGPL-3.0-or-later",
   "devDependencies": {
     "@types/core-js": "^0.9.46",
     "@types/jest": "^22.1.0",
@@ -53,6 +54,7 @@
     "fetch-mock": "^6.0.0",
     "gts": "^0.5.3",
     "jest": "^22.1.4",
+    "shx": "^0.2.2",
     "ts-jest": "^22.0.1",
     "ts-node": "^4.1.0",
     "typedoc": "^0.9.0",

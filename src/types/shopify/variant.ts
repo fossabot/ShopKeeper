@@ -15,26 +15,22 @@
 
 import {dateOrUndefined, dateToShopify, getOrFail, getOrNull, getOrUndefined} from '../../lib/typing';
 import * as CoreTypes from '../base';
-import {InventoryData, Shippable, Shippable$Raw} from '../inventory';
+import {InventoryData, Shippable, Shippable$Raw, ShippingWeightUnit} from '../inventory';
 import {Store} from '../store';
-import {OptionData$Raw, OptionItem} from './option';
+import {OptionData$Raw} from './option';
 import {ProductItem} from './product';
 
 export type VariantData$User<H extends CoreTypes.Handle> =
-    CoreTypes
-        .Indexable&  // one-to-many relationship
-
     Shippable&  // this item carries shipping props
     CoreTypes
         .Purchasable&  // other common properties
     CoreTypes.Titled&CoreTypes.Image$Single&CoreTypes.Date$CreatedAt&
     CoreTypes.Date$UpdatedAt&{
   product?: ProductItem<H>;
-  sku?: string, options: Array<OptionItem<H>>, taxable?: boolean,
-      barcode?: string|null,
+  sku?: string, options: string[], taxable?: boolean, barcode?: string|null,
 };
 
-export type Variant$Raw<H extends CoreTypes.Handle> =
+export type Variant$Raw =
     CoreTypes.Indexable&Shippable$Raw&CoreTypes.Titled&
     CoreTypes.Purchasable$Raw&CoreTypes.Positional$Raw&
     CoreTypes.Date$CreatedAt$Raw&CoreTypes.Date$UpdatedAt$Raw&{
@@ -46,16 +42,15 @@ export type Variant$Raw<H extends CoreTypes.Handle> =
     };
 
 export class VariantItem<H extends CoreTypes.Handle> extends
-    CoreTypes.ShopifyItem<Variant$Raw<H>, VariantData$User<H>> {
+    CoreTypes.ShopifyItem<Variant$Raw, VariantData$User<H>> {
   itemType = CoreTypes.ShopifyTypes.Variant;
 
-  constructor(store: Store, data: Variant$Raw<H>, product: ProductItem<H>) {
+  constructor(store: Store, data: Variant$Raw, product: ProductItem<H>) {
     super(store, data);
 
     const {
       id,
       title,
-      options,
       barcode,
       sku,
       grams,
@@ -105,11 +100,10 @@ export class VariantItem<H extends CoreTypes.Handle> extends
     };
   }
 
-  mergeToRaw(): Variant$Raw<H> {
+  mergeToRaw(): Variant$Raw {
     const {
       id,
       title,
-      options,
       price,
       comparePrice,
       sku,
@@ -117,7 +111,6 @@ export class VariantItem<H extends CoreTypes.Handle> extends
       barcode,
       grams,
       inventory,
-      image,
       requiresShipping,
       weight,
       weightUnit,
@@ -126,7 +119,7 @@ export class VariantItem<H extends CoreTypes.Handle> extends
     } = this.data;
 
     const product = getOrFail<ProductItem<H>>(this.data.product);
-    const rawResult: Variant$Raw<H> = {
+    const rawResult: Variant$Raw = {
       id,
       title,
       options: [],
@@ -134,21 +127,30 @@ export class VariantItem<H extends CoreTypes.Handle> extends
       price: getOrNull(price),
       compare_at_price: getOrNull(comparePrice),
       position: 0,
-      grams,
+      grams: getOrNull(grams),
       sku: getOrNull(sku),
       barcode: getOrNull(barcode),
       taxable: getOrNull(taxable) || true,
-      fulfillment_service: inventory.fulfillment,
-      inventory_quantity: inventory.quantity || 0,
-      inventory_management: inventory.manager,
-      inventory_policy: inventory.policy,
-      requires_shipping: requiresShipping,
-      weight,
-      weight_unit: weightUnit,
-
+      requires_shipping: requiresShipping || true,
+      weight: getOrNull(weight),
+      weight_unit: weightUnit || ShippingWeightUnit.Pounds,
+      fulfillment_service: (inventory) ? inventory.fulfillment : 'manual',
+      inventory_quantity:
+          (inventory && inventory.quantity) ? inventory.quantity : 0,
+      inventory_management: (inventory) ? inventory.manager : 'shopify',
+      inventory_policy: (inventory) ? inventory.policy : 'deny',
       created_at: dateToShopify(getOrFail(createdAt)),
       updated_at: dateToShopify(getOrFail(updatedAt)),
     };
+
+    if (inventory) {
+      Object.assign(rawResult, {
+        fulfillment_service: inventory.fulfillment,
+        inventory_quantity: inventory.quantity || 0,
+        inventory_management: inventory.manager,
+        inventory_policy: inventory.policy,
+      } as Partial<Variant$Raw>);
+    }
 
     return rawResult;
   }

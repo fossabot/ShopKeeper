@@ -14,11 +14,10 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import * as Inventory from './types/inventory';
+import {ShippingWeightUnit} from './types/inventory';
 
-type ShopKeeperDefaultsConfig = {
+export type ShopKeeperDefaultsConfig = {
   shipping: {
-    grams: number,
-    weight: number,
     weightUnit: Inventory.ShippingWeightUnit,
   },
 
@@ -42,13 +41,15 @@ type ShopKeeperDefaultsConfig = {
  * for modification of defaults otherwise outside of
  * the user's control.
  */
-export const GLOBAL_SHOPKEEPER_DEFAULTS = {
+export const GLOBAL_SHOPKEEPER_DEFAULTS: ShopKeeperDefaultsConfig = {
   shipping: {
-
+    weightUnit: ShippingWeightUnit.Pounds,
   },
 
   inventory: {
-
-  }
-
+    fulfillmentService: 'manual',
+    requireShipping: true,
+    shippingManager: 'shopify',
+    shippingPolicy: 'deny',
+  },
 };

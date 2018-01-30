@@ -83,7 +83,7 @@ export class PageItem<H extends Handle> extends
       template_suffix: getOrNull(templateSuffix),
       created_at: dateToShopify(createdAt),
       updated_at: dateToShopify(updatedAt),
-      published_at: (publishedAt) ? dateToShopify(publishedAt) : null,
+      published_at: dateToShopify(publishedAt),
     };
   }
 }

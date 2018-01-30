@@ -58,9 +58,6 @@ export const stageZero = (client: ShopifyClient): StageZeroResult => {
         const [shopResults, pageResults, countryResults, productResults] =
             results;
 
-        const products: Array<ProductItem<CoreTypes.Handle>> = [];
-        const countries: Array<CountryItem<string>> = [];
-
         if (countryResults === null) {
           throw errors.errClientInvalidResult(ShopifyTypes.Country);
         }

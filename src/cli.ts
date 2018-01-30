@@ -27,7 +27,6 @@ import {handlePromiseError} from './error';
 import {ShopifyLogger} from './logging';
 import {colorAppVersion, colorAsciiArt, colorCommandDesc, colorCommandHeader, colorCommandName, colorWarning, colorType,} from './theme';
 import {Config, ConsoleCommand} from './types/config';
-import {$for} from 'core-js/library/web/timers';
 
 
 const path = require('path');

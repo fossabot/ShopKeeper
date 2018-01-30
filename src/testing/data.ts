@@ -16,10 +16,11 @@
 import {ParsedArgs} from 'minimist';
 
 import {Handle} from '../types/base';
-import {Config, Config$User} from '../types/config';
+import {Config} from '../types/config';
+import {ShippingWeightUnit} from '../types/inventory';
 import {OptionData$Raw} from '../types/shopify/option';
-import {ProductData$LocalOnly, ProductData$Raw, ProductItem} from '../types/shopify/product';
-import {Variant$Raw, VariantItem} from '../types/shopify/variant';
+import {ProductData$Raw, ProductItem} from '../types/shopify/product';
+import {Variant$Raw} from '../types/shopify/variant';
 import {Store, StoreData} from '../types/store';
 
 const path = require('path');
@@ -73,8 +74,8 @@ export function testCreateStore(data: Partial<StoreData> = {}): Store {
   });
 }
 
-export function testCreateVariantRaw(data: Partial<Variant$Raw<Handle>> = {}):
-    Variant$Raw<Handle> {
+export function testCreateVariantRaw(data: Partial<Variant$Raw> = {}):
+    Variant$Raw {
   const defaultVariantDate = '2010-05-04T00:00:00.000Z';
 
   return {
@@ -97,7 +98,7 @@ export function testCreateVariantRaw(data: Partial<Variant$Raw<Handle>> = {}):
     title: 'Variant',
     updated_at: defaultVariantDate,
     weight: 0,
-    weight_unit: 'lb',
+    weight_unit: ShippingWeightUnit.Pounds,
     ...data,
   };
 }
@@ -118,7 +119,7 @@ export function testCreateOption(data: Partial<OptionData$Raw>):
 export function testCreateProductRaw(data: Partial<ProductData$Raw<Handle>>):
     ProductData$Raw<Handle> {
   const date = '2000-01-01T00:00:00.000Z';
-  const variants: Array<Variant$Raw<Handle>> = [testCreateVariantRaw()];
+  const variants: Variant$Raw[] = [testCreateVariantRaw()];
   const options: OptionData$Raw[] = [{
     id: 12049102,
     name: 'Default',
@@ -150,9 +151,9 @@ export function testCreateProductRaw(data: Partial<ProductData$Raw<Handle>>):
     template_suffix: null,
     vendor: null,
 
-    options: [],
-
+    options,
     variants,
+
     ...data,
   };
 }
