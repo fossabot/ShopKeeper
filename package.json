@@ -1,6 +1,6 @@
 {
   "name": "@sleepez/shopkeeper",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A utility for managing and deploying Shopify sites",
   "main": "build/src/lib/client.js",
   "types": "build/src/lib/client.d.js",
