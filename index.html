@@ -1,0 +1,408 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>shopkeeper</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.js" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">shopkeeper</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="globals.html">Globals</a>
+				</li>
+			</ul>
+			<h1> shopkeeper</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<p><a href="https://travis-ci.org/Sleep-EZ/ShopKeeper"><img src="https://travis-ci.org/Sleep-EZ/ShopKeeper.svg?branch=master" alt="Build Status"></a>
+					<a href="https://www.npmjs.com/package/shopkeeper"><img src="https://badge.fury.io/js/shopkeeper.svg" alt="npm version"></a>
+					<a href="https://www.npmjs.com/package/shopkeeper"><img src="https://img.shields.io/npm/dm/shopkeeper.svg" alt="Downloads"></a>
+					<a href="https://codecov.io/gh/Sleep-EZ/ShopKeeper"><img src="https://codecov.io/gh/Sleep-EZ/ShopKeeper/branch/master/graph/badge.svg" alt="codecov"></a>
+				<a href="https://deepscan.io/dashboard/#view=project&amp;pid=1775&amp;bid=7608"><img src="https://deepscan.io/api/projects/1775/branches/7608/badge/grade.svg" alt="DeepScan Grade"></a></p>
+				<h1 id="shopkeeper">ShopKeeper</h1>
+				<p><a href="#">ShopKeeper</a> is a robust TypeScript framework for Shopify stores. Define your data in JS/TypeScript and let ShopKeeper control your Shopify site. Operating as a Desired State Configurator (DSC), we ensure that every small detail of your Shopify site is accurate and up-to-date. A quick overview of features and the possible use patterns:</p>
+				<p>This project was created to manage the Shopify store for <a href="https://www.sleepez.com/?utm_campaign=GitHub-ShopKeeper&amp;utm_medium=referral&amp;utm_source=github.com">Sleep EZ</a> (we sell really comfy mattresses made for you). We realized the value of this software is too great to keep private and so we&#39;ve made an effort to open-source ShopKepeer. Internally, this is the 3rd recreation of ShopKeeper due to the previous versions&#39; being plagued with constant issues and numerous bugs. Without TypeScript, I don&#39;t believe writing this software would have been possible.</p>
+				<h2 id="installation">Installation</h2>
+				<p>ShopKeeper itself is a framework, and it&#39;s recommended that when getting started or migrating to ShopKeeper that you create a new workspace by cloning our <a href="#">ShopKeeper-Example-Repo</a> (currently unavailable, WIP...). </p>
+				<p>If you&#39;d like to install our package the latest stable version is available:</p>
+				<pre><code>npm <span class="hljs-keyword">install</span> shopkeeper
+</code></pre><h2 id="documentation">Documentation</h2>
+				<ul>
+					<li><a href="#">Coming Soon....</a></li>
+				</ul>
+				<h2 id="features">Features</h2>
+				<ul>
+					<li><strong>Unit Test Your Entire Store</strong> (even from outside your codebase!)</li>
+					<li>Describe Shopify types in pure JavaScript / TypeScript</li>
+					<li>Sync products from your custom-designed database directly to Shopify</li>
+					<li>Manage product images and other assets easily and store in VCS</li>
+					<li>Easy deployment and management of Shopify themes</li>
+					<li>A templating engine for dynamic generation of product and page content</li>
+					<li>When used with VCS, provides a historical state of your Shopify store</li>
+					<li>Easily deploy or publish to one or many stores (for users with many intl. domains)</li>
+					<li>Gives developers the power to do anything they want</li>
+					<li>Almost everything about a Shopify store can be managed now</li>
+				</ul>
+				<p>With <strong>ShopKeeper</strong>, we intended on giving developers the most leverage to do what they do best: coding. Write <strong>Products</strong>, <strong>Pages</strong>, <strong>Redirects</strong>. Even more detailed types like <strong>Fulfillment Managers</strong>, <strong>Price Rules</strong>, are defined with simple JS objects. The best way to show the ease of ShopKeeper is an example:</p>
+				<h2 id="example-use-case">Example Use Case</h2>
+				<p>For example, <strong>ACME Toys</strong> has an incredibly large product catalog, with tens of thousands of variants and want to move from their custom e-commerce platform, to a new Shopify store. How will they transfer their product catalog? By creating some abhorrent giant CSV to import to Shopify (where weird things can happen and pricing errors can go unnoticed?</p>
+				<p>But that&#39;s only <em>Products</em>... what about Pages? ...Collections? ...Redirects? ...Blog Posts? Ensuring the store is configured correctly? The list goes on.</p>
+				<p>With ShopKepeer, <strong>ACME Toys</strong> could use their existing database (software is irrelevant) for their e-commerce site and convert their existing products to items that can be uploaded directly to Shopify. This provides many benefits for <strong>ACME</strong>, including the ability for their employees to continue using their old e-commerce interface to modify, add, and removing products in a way that their employees are already accustomed to. It also <strong>reduces migration mistakes</strong>, <strong>gives developers more power</strong> by being able to implement their products in NodeJS, and also <strong>allows for unit testing</strong> products, or any other Shopify type. </p>
+				<h2 id="example-redirect">Example Redirect</h2>
+				<p>The following example shows a definition of a <strong>Redirect</strong>, one of the simplest types that can be created. (It&#39;s usually easier to read a CSV and iterate through them instead of defining each one in a file, but of course, it&#39;s up to you.</p>
+				<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> {Redirect} <span class="hljs-keyword">from</span> <span class="hljs-string">'shopkeeper/lib/client'</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">new</span> Redirect({
+    path: <span class="hljs-string">'/old/url'</span>,
+    target: <span class="hljs-string">'/pages/new-page'</span>,
+});
+</code></pre>
+				<h2 id="example-product">Example Product</h2>
+				<p>The following code is an example of defining a new <strong>Product</strong> in a Shopify store. The <strong>Product</strong> is one of the most complicated types due to the <code>options</code> and <code>variants</code> that are required. Using JavaScript can help us leverage the generation of these <strong>Variants</strong> (and also appropriate testing for such) and adds utility for the easy addition/removal of product options. </p>
+				<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> {Product, makeOptions, makeVariants} <span class="hljs-keyword">from</span> <span class="hljs-string">'shopkeeper/lib/client'</span>;
+
+<span class="hljs-comment">// This code is for example, you can lookup pricing however you'd like.</span>
+<span class="hljs-keyword">const</span> prices = {<span class="hljs-string">"Green"</span>: { <span class="hljs-string">"Small"</span>: <span class="hljs-number">15.99</span>, ... }};
+<span class="hljs-keyword">const</span> markup = <span class="hljs-number">1.25</span>; <span class="hljs-comment">// For example - a simple 25% markup</span>
+
+<span class="hljs-comment">// makeOptions() generates a special object to be added to the Product.</span>
+<span class="hljs-comment">// In this example, 4*3 leads to 12 Product variants.</span>
+<span class="hljs-keyword">const</span> options = makeOptions(
+    { name: <span class="hljs-string">"Color"</span>, values: [<span class="hljs-string">"Green"</span>, <span class="hljs-string">"Blue"</span>, <span class="hljs-string">"Orange"</span>, <span class="hljs-string">"Yellow"</span>] },
+    { name: <span class="hljs-string">"Size"</span>, values: [<span class="hljs-string">"Small"</span>, <span class="hljs-string">"Medium"</span>, <span class="hljs-string">"Large"</span>] }
+);
+
+<span class="hljs-keyword">const</span> variants = makeVariants(options, <span class="hljs-function">(<span class="hljs-params">variantOptions: <span class="hljs-built_in">string</span>[]</span>) =&gt;</span> {
+    <span class="hljs-keyword">const</span> [color, size] = variantOptions;
+    <span class="hljs-keyword">const</span> price = prices[color][size];
+
+    <span class="hljs-keyword">return</span> {
+        price: prices[color][size],
+        comparePrice: prices[color][size] * markup,
+        <span class="hljs-comment">// Create your own functions to generate SKUs in your own format!</span>
+        <span class="hljs-comment">//sku: skuify(color, size),</span>
+    };
+});
+
+<span class="hljs-comment">// Finally, create the product.</span>
+<span class="hljs-keyword">const</span> ToyBall = <span class="hljs-keyword">new</span> Product({
+    title: <span class="hljs-string">'Toy Ball'</span>,
+    handle: <span class="hljs-string">'toy-ball'</span>,
+    vendor: <span class="hljs-string">'ACME Toys'</span>,
+    productType: <span class="hljs-string">'Young Child'</span>,
+    ...options,
+    ...variants,
+});
+
+<span class="hljs-comment">// We export the instance to be collected in the module root into an Array</span>
+exports = ToyBall;
+</code></pre>
+				<h2 id="todo">TODO</h2>
+				<p>ShopKeeper is pre-release software so it&#39;s API and featureset are eligible to change. The following is a list of features that are being worked on or still need to be implemented:</p>
+				<ul>
+					<li>[ ] Basic Shopify Types<ul>
+							<li>[x] Country</li>
+							<li>[x] Province</li>
+							<li>[x] Shop</li>
+							<li>[x] Page</li>
+							<li>[x] Product</li>
+							<li>[x] ProductVariant</li>
+							<li>[ ] ProductImage</li>
+							<li>[ ] Redirect</li>
+							<li>[ ] ScriptTag</li>
+							<li>[ ] CarrierService</li>
+							<li>[ ] Theme</li>
+							<li>[ ] Asset</li>
+							<li>[ ] User</li>
+							<li>[ ] Webhook</li>
+							<li>[ ] Article</li>
+							<li>[ ] Blog</li>
+						</ul>
+					</li>
+					<li>[ ] Collections<ul>
+							<li>[ ] SmartCollection</li>
+							<li>[ ] CustomCollection</li>
+						</ul>
+					</li>
+					<li>[ ] Metafields</li>
+					<li>[ ] Product Images<ul>
+							<li>[ ] ProductImage type</li>
+							<li>[ ] Reading locally</li>
+							<li>[ ] Syncronization</li>
+						</ul>
+					</li>
+					<li>[ ]  Price Rules, Coupons, and Gift Cards<ul>
+							<li>[ ] PriceRule</li>
+							<li>[ ] DiscountCode</li>
+							<li>[ ] GiftCard</li>
+						</ul>
+					</li>
+				</ul>
+				<p>(pretty big TODO list, right?)</p>
+				<h3 id="license">License</h3>
+				<p><a href="#">ShopKeeper</a> is licensed under the <a href="LICENSE.txt">GNU AGPL 3.0</a> license. Please feel free to contribute, fork, and expand on this project!</p>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="globals.html"><em>Globals</em></a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/___tests___config_test_.html">"__tests__/config.test"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/___tests___error_test_.html">"__tests__/error.test"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/___tests___logging_test_.html">"__tests__/logging.test"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/___tests___routing_test_.html">"__tests__/routing.test"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_cli_.html">"cli"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_commands_envs_.html">"commands/envs"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_commands_sync_.html">"commands/sync"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_commands_upload_.html">"commands/upload"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_config_.html">"config"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_defaults_.html">"defaults"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_error_.html">"error"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_http___tests___client_test_.html">"http/__tests__/client.test"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_http_client_.html">"http/client"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib___tests___typing_test_.html">"lib/__tests__/typing.test"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_client_.html">"lib/client"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_typing_.html">"lib/typing"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_logging_.html">"logging"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_render_.html">"render"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_renderers_lib_.html">"renderers/lib"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_renderers_raw_.html">"renderers/raw"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_routing_.html">"routing"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_stages_.html">"stages"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_testing_data_.html">"testing/data"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_theme_.html">"theme"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_types___tests___store_test_.html">"types/__tests__/store.test"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_types_base_.html">"types/base"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_types_cache_.html">"types/cache"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_types_config_.html">"types/config"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_types_inventory_.html">"types/inventory"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_types_routes_.html">"types/routes"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_types_shopify___tests___country_test_.html">"types/shopify/__tests__/country.test"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_types_shopify___tests___option_test_.html">"types/shopify/__tests__/option.test"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_types_shopify___tests___page_test_.html">"types/shopify/__tests__/page.test"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_types_shopify___tests___shop_test_.html">"types/shopify/__tests__/shop.test"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_types_shopify_country_.html">"types/shopify/country"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_types_shopify_image_.html">"types/shopify/image"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_types_shopify_metafield_.html">"types/shopify/metafield"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_types_shopify_option_.html">"types/shopify/option"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_types_shopify_page_.html">"types/shopify/page"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_types_shopify_product_.html">"types/shopify/product"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_types_shopify_province_.html">"types/shopify/province"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_types_shopify_redirect_.html">"types/shopify/redirect"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_types_shopify_shop_.html">"types/shopify/shop"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_types_shopify_variant_.html">"types/shopify/variant"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_types_store_.html">"types/store"</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>
