@@ -1,11 +1,8 @@
-import {Array} from 'core-js/library/web/timers';
-
-import {testCreateProduct, testCreateProductRaw, testCreateStore} from '../../testing/data';
-import {Handle, ShopifyType, ShopifyTypes} from '../../types/base';
+import {testCreateProductRaw, testCreateStore} from '../../testing/data';
+import {Handle, ShopifyTypes} from '../../types/base';
 import {Method} from '../../types/routes';
 import {ProductItem} from '../../types/shopify/product';
 import {ShopItem} from '../../types/shopify/shop';
-import {Store} from '../../types/store';
 import {DEFAULT_FETCH_OPTS, ShopifyClient} from '../client';
 
 const fetchMock = require('fetch-mock');

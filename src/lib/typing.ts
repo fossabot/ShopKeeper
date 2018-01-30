@@ -48,6 +48,6 @@ export function dateOrUndefined(item: string|null): Date|undefined {
   return new Date(item);
 }
 
-export function dateToShopify(item: Date): string {
-  return item.toISOString();
+export function dateToShopify(item?: Date|null): string {
+  return (item || new Date()).toISOString();
 }

@@ -31,7 +31,7 @@ export type OptionData$Raw = CoreTypes.Indexable&CoreTypes.Positional$Raw&{
   product_id: number;
 };
 
-export class OptionItem<H extends CoreTypes.Handle> extends
+export class OptionItem extends
     CoreTypes.ShopifyItem<OptionData$Raw, OptionData$User> {
   itemType = ShopifyTypes.Option;
 

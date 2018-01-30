@@ -237,7 +237,7 @@ export function getUserDefinedEntity(
     return {type: undefined, entity: undefined};
   }
 
-  const pathParts = (path || '').replace('\\', '/').split('/');
+  const pathParts = (path).replace('\\', '/').split('/');
   const pathPartLen = pathParts.length;
 
   // Verify that the number of path parts is in the expected range

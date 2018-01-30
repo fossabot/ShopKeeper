@@ -13,8 +13,6 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import {ItemRoutes} from './types/routes';
-
 export function shopify_printf(str: string, context: {}): string {
   const defaultContext: {[key: string]: string|number} = {
     ...context,

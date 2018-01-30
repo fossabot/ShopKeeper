@@ -36,8 +36,7 @@ export const upload: ConsoleCommand =
       const client = new ShopifyClient(store);
 
       return stageZero(client)
-          .then(stageZeroResults => {
-            const {shop, pages, products, countries} = stageZeroResults;
+          .then(() => {
             const entity = getUserDefinedEntity(store, args, {required: true});
 
             logging.logStageStart(`Merging remote and local data...`, 1);

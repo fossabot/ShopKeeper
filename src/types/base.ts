@@ -179,7 +179,7 @@ export type Positional$Raw = {
  * element was created.
  */
 export type Date$CreatedAt = {
-  createdAt: Date
+  createdAt?: Date|null
 };
 export type Date$CreatedAt$Raw = {
   created_at: string
@@ -191,7 +191,7 @@ export type Date$CreatedAt$Raw = {
  * sometimes be modified after the fact.
  */
 export type Date$UpdatedAt = {
-  updatedAt: Date
+  updatedAt?: Date|null
 };
 export type Date$UpdatedAt$Raw = {
   updated_at: string

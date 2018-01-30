@@ -15,11 +15,10 @@
 
 import {colorSuccess} from './theme';
 
-const console = require('console');
 const chalk = require('chalk');
 
-const INDENT_STAGE_WIDTH = 9;
 const INDENT_WIDTH = 3;
+const INDENT_STAGE_WIDTH = INDENT_WIDTH * 3;
 
 export type UnknownLogData = Array<null|string|number|{}>;
 export class ShopifyLogger {

@@ -1,10 +1,9 @@
-import {Product, makeOptions, makeVariants} from '../src/lib/client';
+import {Product, makeVariants} from '../src/lib/client';
 
-const options = makeOptions(
+const variantsAndOptions = makeVariants([
     {name: 'Size', values: ['Twin', 'Full', 'Queen']},
-    {name: 'Firmness', values: ['Soft', 'Med.', 'Firm']});
-
-const variants = makeVariants(options, (variantOptions: string[]) => {
+    {name: 'Firmness', values: ['Soft', 'Med.', 'Firm']}
+], (variantOptions: string[]) => {
     const [size, firmness] = variantOptions;
 
     return {
@@ -18,6 +17,5 @@ const Roma = new Product({
     title: 'Roma Latex Mattress',
     handle: 'roma-latex-mattress',
 
-    ...options,
-    ...variants,
+    ...variantsAndOptions,
 });

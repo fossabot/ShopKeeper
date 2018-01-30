@@ -13,34 +13,20 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import * as CoreTypes from '../types/base';
 import {Handle, LocalShopifyItem, ShopifyTypes} from '../types/base';
-import {OptionData$Raw, OptionData$User} from '../types/shopify/option';
-import {ProductData$LocalOnly, ProductData$User} from '../types/shopify/product';
+import {OptionData$User} from '../types/shopify/option';
+import {ProductData$LocalOnly} from '../types/shopify/product';
 import {VariantData$User} from '../types/shopify/variant';
 
 
 export type Lib$ProductOptions = Array<{name: string, values: string[]}>;
-
-export function generateProductOptions(options: Lib$ProductOptions) {
-  const finalOptions: OptionData$Raw[] = [];
-  const modifiedOptions = {...options};
-
-  if (Object.keys(options).length > 3) {
-    throw new Error(
-        'Three option dimensions is the maximum allowed ' +
-        'on the Shopify platform');
-  }
-}
-
 export class Product<H extends Handle> extends
     LocalShopifyItem<ProductData$LocalOnly<H>> {
   itemType = ShopifyTypes.Product;
   data: ProductData$LocalOnly<H>;
 }
 
-export class Option<H extends Handle> extends
-    LocalShopifyItem<OptionData$User> {
+export class Option extends LocalShopifyItem<OptionData$User> {
   itemType = ShopifyTypes.Option;
   data: OptionData$User;
 }
@@ -53,13 +39,12 @@ export class Variant<H extends Handle> extends
 
 
 export type Helpers$MakeOptions$Result = {
-  unresolvedOptions: Array<Option<Handle>>; options: never[];
+  unresolvedOptions: Option[]; options: never[];
 };
 export type Helpers$MakeOptions$Option = {
   name: string; values: string[];
 };
-export function makeOptions(...options: Helpers$MakeOptions$Option[]):
-    Helpers$MakeOptions$Result {
+function makeOptions(...options: Helpers$MakeOptions$Option[]): Option[] {
   if (options.length > 3) {
     throw new Error(`makeOptions Error: Maximum allowed is three (3)`);
   }
@@ -69,28 +54,57 @@ export function makeOptions(...options: Helpers$MakeOptions$Option[]):
     throw new Error(`makeOptions Error: You must provide at least one option`);
   }
 
-  return {
-    unresolvedOptions: options.map((option) => new Option(option)),
-    options: [],
-  };
+  return options.map((option) => new Option(option));
 }
 
 export type Helpers$MakeVariants$Callback = (options: string[]) =>
-    Variant<Handle>;
+    VariantData$User<Handle>;
 export type Helpers$MakeVariants$Result = {
   unresolvedVariants: Array<Variant<Handle>>; variants: never[];
+  options: Option[];
 };
 
 export function makeVariants(
-    options: Array<Option<Handle>>,
+    rawOptions: Helpers$MakeOptions$Option[],
     cb: Helpers$MakeVariants$Callback): Helpers$MakeVariants$Result {
-  // TODO: Remove me, makes missing params shut up
-  if (options) {
-    (false) ? cb([]) : cb([]);
-  }
+  const generatedOptionMap: string[][] = [];
+  const options = makeOptions(...rawOptions);
+
+  const hasSecondary = options.length >= 2;
+  const hasTertiary = options.length === 3;
+
+  options[0].data.values.forEach((firstOption: string) => {
+    if (!hasSecondary) return generatedOptionMap.push([firstOption]);
+
+    return options[1].data.values.forEach((secondOption: string) => {
+      if (!hasTertiary) {
+        return generatedOptionMap.push([firstOption, secondOption]);
+      }
+
+      return options[2].data.values.forEach((thirdOption: string) => {
+        generatedOptionMap.push([firstOption, secondOption, thirdOption]);
+      });
+    });
+  });
+
+  const resultVariants: Array<Variant<Handle>> = [];
+  const rawProcessedVariants: Array<Partial<VariantData$User<Handle>>> =
+      generatedOptionMap.map((optionList) => cb(optionList));
+  rawProcessedVariants.forEach(
+      (data: Partial<VariantData$User<Handle>>, index: number) => {
+        const currentVariantOptions = generatedOptionMap[index];
+        const final = new Variant({
+          title: currentVariantOptions.join(' / '),
+          options: currentVariantOptions,
+          ...data,
+        });
+
+        resultVariants.push(final);
+      });
 
   return {
-    unresolvedVariants: [],
+    unresolvedVariants: resultVariants,
+    options,
     variants: [],
   };
 }
