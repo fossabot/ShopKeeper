@@ -64,20 +64,21 @@ export new Redirect({
 The following code is an example of defining a new **Product** in a Shopify store. The **Product** is one of the most complicated types due to the `options` and `variants` that are required. Using JavaScript can help us leverage the generation of these **Variants** (and also appropriate testing for such) and adds utility for the easy addition/removal of product options. 
 
 ```typescript
-import {Product, makeOptions, makeVariants} from 'shopkeeper/lib/client';
+import {Product, makeVariants} from 'shopkeeper/lib/client';
 
-// This code is for example, you can lookup pricing however you'd like.
+/**
+ * Example code. For a real product you'd likely want to have
+ * some sort of pricing table, and a separate table or a percentage
+ * markup to add dynamically (try doing that on Shopify!)
+ */
 const prices = {"Green": { "Small": 15.99, ... }};
-const markup = 1.25; // For example - a simple 25% markup
+const markup = 1.25; // 25%
 
-// makeOptions() generates a special object to be added to the Product.
-// In this example, 4*3 leads to 12 Product variants.
-const options = makeOptions(
+// Design the Product's options, and a function used to generate each variant
+const variants = makeVariants([
     { name: "Color", values: ["Green", "Blue", "Orange", "Yellow"] },
     { name: "Size", values: ["Small", "Medium", "Large"] }
-);
-
-const variants = makeVariants(options, (variantOptions: string[]) => {
+], (variantOptions: string[]) => {
     const [color, size] = variantOptions;
     const price = prices[color][size];
     
@@ -85,9 +86,17 @@ const variants = makeVariants(options, (variantOptions: string[]) => {
         price: prices[color][size],
         comparePrice: prices[color][size] * markup,
         // Create your own functions to generate SKUs in your own format!
-        //sku: skuify(color, size),
+        sku: sku(color, size),
     };
 });
+
+// An example function for SKU generation
+const sku = (...options: string[]) => (
+    options.map((opt) => {
+        Green: 'GRN', Blue: 'BLU', Yellow: 'YEL', // Colors
+        Small: 'SM', Medium: 'MED', Large: 'LG',  // Sizes
+    }[opt] || opt).join('-');
+);
 
 // Finally, create the product.
 const ToyBall = new Product({
@@ -95,7 +104,6 @@ const ToyBall = new Product({
     handle: 'toy-ball',
     vendor: 'ACME Toys',
     productType: 'Young Child',
-    ...options,
     ...variants,
 });
 
