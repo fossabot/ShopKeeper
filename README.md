@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/Sleep-EZ/ShopKeeper.svg?branch=master)](https://travis-ci.org/Sleep-EZ/ShopKeeper)
-[![npm version](https://badge.fury.io/js/@sleepez/shopkeeper.svg)](https://www.npmjs.com/package/shopkeeper)
-[![Downloads](https://img.shields.io/npm/dm/@sleepez/shopkeeper.svg)](https://www.npmjs.com/package/shopkeeper)
+[![npm version](https://badge.fury.io/js/%40sleepez%2Fshopkeeper.svg)](https://badge.fury.io/js/%40sleepez%2Fshopkeeper)
+[![Downloads](https://img.shields.io/npm/dm/@sleepez/shopkeeper.svg)](https://www.npmjs.com/package/@sleepez/shopkeeper)
 [![codecov](https://codecov.io/gh/Sleep-EZ/ShopKeeper/branch/develop/graph/badge.svg)](https://codecov.io/gh/Sleep-EZ/ShopKeeper)
 [![DeepScan Grade](https://deepscan.io/api/projects/1775/branches/7608/badge/grade.svg)](https://deepscan.io/dashboard/#view=project&pid=1775&bid=7608)
 

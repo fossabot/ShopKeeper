@@ -20,6 +20,6 @@ exports[`Shared Error Functions Default Promise Handler 2`] = `
 
 exports[`Shared Error Functions InvalidEntityPath 1`] = `"Invalid entity path provided: 'some/path' (example: 'collections/featured')"`;
 
-exports[`Shared Error Functions NoValidConfig 1`] = `"No valid configuration is available. Check your 'shopify.config.js'"`;
+exports[`Shared Error Functions NoValidConfig 1`] = `"This command requires a valid configuration. Verify 'shopify.config.js' exists and is valid"`;
 
 exports[`Shared Error Functions UnknownShopifyType 1`] = `"Fatal Error: Unknown Shopify type 'segap'."`;
