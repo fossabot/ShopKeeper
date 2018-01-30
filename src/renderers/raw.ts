@@ -21,7 +21,7 @@ const fs = require('fs');
 
 
 export type RawRenderOptions = {};
-export class RawRenderEngine extends RenderEngine<RawRenderOptions> {
+export class RenderEngine$Raw extends RenderEngine<RawRenderOptions> {
   matchPattern = /.+\.html?/;
 
   render(path: PathLike) {

@@ -5,5 +5,4 @@ docs/
 example-data/
 coverage/
 .npmignore
-
 *.tgz

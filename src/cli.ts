@@ -25,7 +25,7 @@ import {upload} from './commands/upload';
 import {DEFAULT_CONFIG_NAME, loadConfig} from './config';
 import {handlePromiseError} from './error';
 import {ShopifyLogger} from './logging';
-import {colorAppVersion, colorAsciiArt, colorCommandDesc, colorCommandHeader, colorCommandName, colorWarning, colorType,} from './theme';
+import {colorAppVersion, colorAsciiArt, colorCommandDesc, colorCommandHeader, colorCommandName, colorWarning, colorType, colorPath,} from './theme';
 import {Config, ConsoleCommand} from './types/config';
 
 
@@ -38,6 +38,7 @@ process.on('unhandledRejection', handlePromiseError);
 // Read information from the `package.json`
 const packagePath = path.resolve(__dirname, '../package.json');
 const {name, version} = require(packagePath);
+const packageNiceName = name.split('/')[1] || name;
 
 // Parse the user's arguments
 const minimist = require('minimist');
@@ -64,7 +65,7 @@ const HELP_MESSAGE =
 
 `) +
     `  ${colorCommandHeader(`Usage:`)}  ${
-        name} <command> [path] [-e|--env=<store>] [-t|--tags=<tags>]
+        packageNiceName} <command> [path] [-e|--env=<store>] [-t|--tags=<tags>]
         
   ${colorCommandHeader(`Commands:`)}
     ${colorCommandName('envs')}        ${
@@ -84,7 +85,7 @@ function callCommand(config: Config|null, calledCommand: string): void {
   if (!config) {
     console.warn(
         `No valid ShopKeeper configuration ` +
-        `was found (${DEFAULT_CONFIG_NAME})\n`);
+        `was found (${colorPath(DEFAULT_CONFIG_NAME)})`);
   }
 
   // Check if the command isn't known

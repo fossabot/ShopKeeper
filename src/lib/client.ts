@@ -13,13 +13,14 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+export * from '../types/index';
+export * from '../renderers/index';
+
 import {Handle, LocalShopifyItem, ShopifyTypes} from '../types/base';
 import {OptionData$User} from '../types/shopify/option';
 import {ProductData$LocalOnly} from '../types/shopify/product';
 import {VariantData$User} from '../types/shopify/variant';
 
-
-export type Lib$ProductOptions = Array<{name: string, values: string[]}>;
 export class Product<H extends Handle> extends
     LocalShopifyItem<ProductData$LocalOnly<H>> {
   itemType = ShopifyTypes.Product;
@@ -37,10 +38,6 @@ export class Variant<H extends Handle> extends
   data: VariantData$User<H>;
 }
 
-
-export type Helpers$MakeOptions$Result = {
-  unresolvedOptions: Option[]; options: never[];
-};
 export type Helpers$MakeOptions$Option = {
   name: string; values: string[];
 };

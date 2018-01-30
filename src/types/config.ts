@@ -17,7 +17,6 @@ import {PathLike} from 'fs';
 import {ParsedArgs} from 'minimist';
 
 import {RenderEngine} from '../renderers/lib';
-
 import {Store, StoreData$Raw} from './store';
 
 export type ConsoleCommand = (config: Config|null, args: ParsedArgs) =>

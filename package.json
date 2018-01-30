@@ -1,6 +1,6 @@
 {
   "name": "@sleepez/shopkeeper",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A utility for managing and deploying Shopify sites",
   "main": "build/src/lib/client.js",
   "types": "build/src/lib/client.d.js",
@@ -33,7 +33,7 @@
     "test": "jest",
     "check": "gts check",
     "clean": "gts clean",
-    "compile": "tsc -p .",
+    "compile": "tsc -p .; shx cp package.json build/package.json",
     "docs": "typedoc --mode modules --excludeExternals --excludeNotExported --excludePrivate --out docs/ src/",
     "postdocs": "shx cp .nojekyll docs/.nojekyll",
     "fix": "gts fix",
@@ -42,9 +42,14 @@
     "posttest": "npm run check",
     "setup": "yarn"
   },
-  "keywords": ["shopify", "dsc", "framework", "cli"],
+  "keywords": [
+    "shopify",
+    "dsc",
+    "framework",
+    "cli"
+  ],
   "author": "Evan Darwin",
-  "license": "AGPL-3.0-or-later",
+  "license": "AGPL-3.0",
   "devDependencies": {
     "@types/core-js": "^0.9.46",
     "@types/jest": "^22.1.0",

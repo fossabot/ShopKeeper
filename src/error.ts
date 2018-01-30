@@ -23,8 +23,8 @@ export class ConfigError extends Error {}
 
 export function errNoValidConfig() {
   return new ConfigError(
-      `No valid configuration is available. ` +
-      `Check your '${colorPath('shopify.config.js')}'`);
+      `This command requires a valid configuration. ` +
+      `Verify '${colorPath('shopify.config.js')}' exists and is valid`);
 }
 
 export function errUnknownShopifyType(type: string) {

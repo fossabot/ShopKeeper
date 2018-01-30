@@ -32,7 +32,7 @@ export const DEFAULT_CONFIG_NAME = 'shopify.config.ts';
 
 export function loadConfig(dir: PathLike): Promise<Config|null|Error> {
   const userConfigPath = path.join(dir, DEFAULT_CONFIG_NAME);
-  let untrustedUserConfig: Config$Unsafe|null = require(userConfigPath);
+  let untrustedUserConfig: Config$Unsafe|null;
 
   try {
     untrustedUserConfig = require(userConfigPath);

@@ -1,17 +1,16 @@
 const path = require('path');
-
 import {Config$User} from './src/types/config';
-import {RawRenderEngine} from './src/renderers/raw';
+import {RenderEngine$Raw} from './src/renderers/raw';
 
 const workspacePath = path.resolve(__dirname, 'workspace-example');
 
-const ShopifyConfig: Config$User = {
+export = {
     data: path.join(workspacePath, 'index.ts'),
 
     templates: {
         path: path.join(workspacePath, 'templates'),
         engines: [
-            new RawRenderEngine({}),
+            new RenderEngine$Raw({}),
         ]
     },
 
@@ -22,6 +21,4 @@ const ShopifyConfig: Config$User = {
             password: process.env.STORE_SECRET,
         },
     },
-};
-
-module.exports = ShopifyConfig;
+} as Config$User;
