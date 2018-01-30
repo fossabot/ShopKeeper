@@ -76,7 +76,7 @@ const markup = 1.25; // 25%
 
 // Design the Product's options, and a function used to generate each variant
 const variants = makeVariants([
-    { name: "Color", values: ["Green", "Blue", "Orange", "Yellow"] },
+    { name: "Color", values: ["Green", "Blue", "Yellow"] },
     { name: "Size", values: ["Small", "Medium", "Large"] }
 ], (variantOptions: string[]) => {
     const [color, size] = variantOptions;
