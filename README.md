@@ -50,7 +50,7 @@ With ShopKepeer, **ACME Toys** could use their existing database (software is ir
 ## Example Redirect
 The following example shows a definition of a **Redirect**, one of the simplest types that can be created. (It's usually easier to read a CSV and iterate through them instead of defining each one in a file, but of course, it's up to you.
 
-```typescript
+```TypeScript
 import {Redirect} from 'shopkeeper/lib/client';
 
 export new Redirect({
@@ -63,7 +63,7 @@ export new Redirect({
 
 The following code is an example of defining a new **Product** in a Shopify store. The **Product** is one of the most complicated types due to the `options` and `variants` that are required. Using JavaScript can help us leverage the generation of these **Variants** (and also appropriate testing for such) and adds utility for the easy addition/removal of product options. 
 
-```typescript
+```TypeScript
 import {Product, makeVariants} from 'shopkeeper/lib/client';
 
 /**
@@ -87,7 +87,7 @@ const variants = makeVariants([
         comparePrice: prices[color][size] * markup,
         // Create your own functions to generate SKUs in your own format!
         sku: sku(color, size),
-    };
+    } as ProductData$LocalOnly;
 });
 
 // An example function for SKU generation
