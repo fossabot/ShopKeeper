@@ -1,5 +1,5 @@
 {
-  "name": "shopkeeper",
+  "name": "@sleepez/shopkeeper",
   "version": "0.0.2",
   "description": "A utility for managing and deploying Shopify sites",
   "main": "build/src/lib/client.js",
