@@ -1,4 +1,5 @@
-[![Build Status](https://travis-ci.org/Sleep-EZ/ShopKeeper.svg?branch=master)](https://travis-ci.org/Sleep-EZ/ShopKeeper)
+[![Build Status](https://travis-ci.org/Sleep-EZ/ShopKeeper.svg?branch=master)](https://travis-ci.org/Sleep-EZ/ShopKeeper)[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FSleep-EZ%2FShopKeeper.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FSleep-EZ%2FShopKeeper?ref=badge_shield)
+
 [![npm version](https://badge.fury.io/js/shopkeeper.svg)](https://www.npmjs.com/package/shopkeeper)
 [![Downloads](https://img.shields.io/npm/dm/shopkeeper.svg)](https://www.npmjs.com/package/shopkeeper)
 [![codecov](https://codecov.io/gh/Sleep-EZ/ShopKeeper/branch/master/graph/badge.svg)](https://codecov.io/gh/Sleep-EZ/ShopKeeper)
@@ -143,3 +144,5 @@ ShopKeeper is pre-release software so it's API and featureset are eligible to ch
 ### License
 
 [ShopKeeper](#) is licensed under the [GNU AGPL 3.0](LICENSE.txt) license. Please feel free to contribute, fork, and expand on this project!
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FSleep-EZ%2FShopKeeper.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FSleep-EZ%2FShopKeeper?ref=badge_large)
